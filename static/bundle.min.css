@@ -1,7 +1,11 @@
+@font-face {
+  font-family: "Deja Vu Sans Mono";
+  src: url("/static/fonts/dejavu-sans/DejaVuSansMono.ttf"); }
+
 html, body {
   height: 100%;
   color: white;
-  font-family: 'monospace';
+  font-family: "Deja Vu Sans Mono";
   font-size: 10pt;
   margin: 5px 0 0;
   overflow: hidden; }
@@ -36,7 +40,7 @@ ul.settings-bar {
 /* BASICS */
 .CodeMirror {
   /* Set height, width, borders, and global font properties here */
-  font-family: monospace;
+  font-family: "Deja Vu Sans Mono";
   height: 300px;
   color: black;
   direction: ltr; }
@@ -465,6 +469,9 @@ span.CodeMirror-selectedtext {
 .CodeMirror-linenumber {
   color: #4E6D71; }
 
+.CodeMirror-dialog input {
+  font-family: "Deja Vu Sans Mono"; }
+
 /* Custom checkbox */
 .container-checkbox {
   /* Hide the browser's default checkbox */
@@ -584,7 +591,7 @@ input[type=text]:focus, input[type=password]:focus {
   border-color: #4A606C; }
 
 input[type=button] {
-  font-family: 'monospace';
+  font-family: "Deja Vu Sans Mono";
   background-color: #2E3C43;
   color: white;
   border: none;

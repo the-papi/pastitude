@@ -1,9 +1,14 @@
 @import "dark";
 
+@font-face {
+  font-family: "Deja Vu Sans Mono";
+  src: url("/static/fonts/dejavu-sans/DejaVuSansMono.ttf");
+}
+
 html, body {
   height: 100%;
   color: $default-text-color;
-  font-family: 'monospace';
+  font-family: "Deja Vu Sans Mono";
   font-size: 10pt;
   margin: 5px 0 0;
   overflow: hidden;
