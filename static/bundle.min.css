@@ -10,6 +10,9 @@ html, body {
   margin: 5px 0 0;
   overflow: hidden; }
 
+input {
+  font-family: "Deja Vu Sans Mono"; }
+
 body {
   background: #171E22; }
 
