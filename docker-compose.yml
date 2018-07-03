@@ -21,7 +21,7 @@ services:
 #          - public
           - application
         volumes:
-          - .:/app
+          - application:/app
         links:
           - uwsgi
 # Comment ports section if you would like to use proxy
@@ -35,7 +35,7 @@ services:
         networks:
           - application
         volumes:
-          - .:/app
+          - application:/app
         links:
           - redis
 

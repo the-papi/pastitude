@@ -26,7 +26,7 @@ def store():
 
     expiration = int(data['expiration'])
 
-    if expiration not in [15, 60, 1440, 10080, 302400, 110376000]:
+    if expiration not in [15, 60, 1440, 10080, 302400, 110376000] and expiration > 0:
         return 'Nice try!'
 
     r.set(paste_id + ':data', json.dumps(data), ex=(expiration * 60 if expiration > 0 else None))
@@ -44,6 +44,8 @@ def get_paste(uuid):
         expiration = int(r.get(uuid + ':expiration').decode('utf-8'))
 
         if expiration == -1:
+            r.decr(uuid + ':expiration', 1)
+        elif expiration == -2:
             r.delete(uuid + ':data')
     except AttributeError:
         return 'Oops!'

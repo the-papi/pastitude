@@ -92,11 +92,15 @@ if ($('#data').length == 0) {
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function (data) {
+                console.log('test');
                 if ($('.encryption:checked').val() == 'password') {
                     window.location.href = window.location.pathname + data.uuid;
                 } else {
                     window.location.href = window.location.pathname + data.uuid + '#' + key;
                 }
+            },
+            error: function(error) {
+                console.log(error);
             }
         });
     })
