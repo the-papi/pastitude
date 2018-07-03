@@ -1,0 +1,19 @@
+@import "dark";
+
+.CodeMirror {
+  height: 100%;
+  color: $default-text-color;
+  background: $background-color;
+}
+
+.CodeMirror-cursor {
+  border-left: 1px solid $default-text-color;
+}
+
+.CodeMirror-linenumbers {
+  background: $background-color;
+}
+
+.CodeMirror-linenumber {
+  color: $secondary-text-color
+}

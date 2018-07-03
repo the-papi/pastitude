@@ -1,0 +1,48 @@
+version: '3'
+
+networks:
+    application:
+# Prepared for proxy
+#    public:
+#        external: true
+
+volumes:
+    application:
+
+services:
+    nginx:
+        build:
+            context: .
+            dockerfile: docker/nginx/Dockerfile
+        environment:
+          - .env
+        networks:
+# Prepared for proxy
+#          - public
+          - application
+        volumes:
+          - .:/app
+        links:
+          - uwsgi
+# Comment ports section if you would like to use proxy
+        ports:
+          - 80:80
+
+    uwsgi:
+        build:
+            context: .
+            dockerfile: docker/uwsgi/Dockerfile
+        networks:
+          - application
+        volumes:
+          - .:/app
+        links:
+          - redis
+
+    redis:
+        image: redis:alpine
+        volumes:
+          - ./storage/redis:/data
+        networks:
+          - application
+        command: redis-server --appendonly yes

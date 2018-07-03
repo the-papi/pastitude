@@ -1,0 +1,130 @@
+@import "dark";
+
+.cm-s-material-peacock {
+  &.CodeMirror {
+    background-color: $background-color;
+    color: rgba(233, 237, 237, 1);
+  }
+
+  & .CodeMirror-gutters {
+    border-right: 1px solid $secondary-color;
+    background: $background-color;
+  }
+
+  & .CodeMirror-guttermarker, & .CodeMirror-guttermarker-subtle, & .CodeMirror-linenumber {
+    color: rgb(83, 127, 126);
+  }
+
+  & .CodeMirror-cursor {
+    border-left: 1px solid #f8f8f0;
+  }
+
+  & div.CodeMirror-selected {
+    background: $background-color;
+  }
+
+  &.CodeMirror-focused div.CodeMirror-selected {
+    background: rgba(255, 255, 255, 0.10);
+  }
+
+  & .CodeMirror-line::selection, & .CodeMirror-line > span::selection, & .CodeMirror-line > span > span::selection {
+    background: rgba(255, 255, 255, 0.10);
+  }
+
+  & .CodeMirror-line::-moz-selection, & .CodeMirror-line > span::-moz-selection, & .CodeMirror-line > span > span::-moz-selection {
+    background: rgba(255, 255, 255, 0.10);
+  }
+
+  & .CodeMirror-activeline-background {
+    background: rgba(0, 0, 0, 0);
+  }
+
+  & .cm-keyword {
+    color: $cm-keyword;
+  }
+
+  & .cm-operator {
+    color: $cm-operator;
+  }
+
+  & .cm-variable-2 {
+    color: $cm-variable;
+  }
+
+  & .cm-variable-3 {
+    color: $cm-variable;
+  }
+
+  & .cm-builtin {
+    color: $cm-builtin;
+  }
+
+  & .cm-atom {
+    color: $cm-atom;
+  }
+
+  & .cm-number {
+    color: $cm-number;
+  }
+
+  & .cm-def {
+    color: $cm-def;
+  }
+
+  & .cm-string {
+    color: $cm-string;
+  }
+
+  & .cm-string-2 {
+    color: $cm-string;
+  }
+
+  & .cm-comment {
+    color: $cm-comment;
+  }
+
+  & .cm-variable {
+    color: $cm-variable;
+  }
+
+  & .cm-tag {
+    color: $cm-tag;
+  }
+
+  & .cm-meta {
+    color: $cm-meta;
+  }
+
+  & .cm-attribute {
+    color: $cm-attribute;
+  }
+
+  & .cm-property {
+    color: $cm-property;
+  }
+
+  & .cm-qualifier {
+    color: $cm-qualifier;
+  }
+
+  & .cm-variable-3 {
+    color: $cm-variable-3;
+  }
+
+  & .cm-type {
+    color: $cm-type;
+  }
+
+  & .cm-tag {
+    color: $cm-tag;
+  }
+
+  & .cm-error {
+    color: $cm-error;
+  }
+
+  & .CodeMirror-matchingbracket {
+    text-decoration: underline;
+    color: white !important;
+  }
+}

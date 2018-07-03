@@ -1,0 +1,42 @@
+@import "dark";
+
+html, body {
+  height: 100%;
+  color: $default-text-color;
+  font-family: 'monospace';
+  font-size: 10pt;
+  margin: 5px 0 0;
+  overflow: hidden;
+}
+
+body {
+  background: $background-color;
+}
+
+#bar {
+  margin: 5px;
+}
+
+#editor {
+  width: 100%;
+  height: calc(100% - 73px);
+  margin-top: 10px;
+  resize: none;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: $default-text-color;
+  cursor: text;
+}
+
+ul.settings-bar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.settings-bar li {
+  float: left;
+  padding: 0 5px;
+}

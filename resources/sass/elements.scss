@@ -1,0 +1,189 @@
+@import "dark";
+
+/* Custom checkbox */
+.container-checkbox {
+  & {
+    display: inline-block;
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 10pt;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  /* Hide the browser's default checkbox */
+  & input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  /* When the checkbox is checked, add a blue background */
+  & input:checked ~ .checkmark-checkbox {
+    background-color: $primary-color;
+  }
+
+  /* Show the checkmark-checkbox when checked */
+  & input:checked ~ .checkmark-checkbox:after {
+    display: block;
+  }
+
+  /* Style the checkmark-checkbox/indicator */
+  & .checkmark-checkbox:after {
+    left: 5px;
+    top: 1px;
+    width: 4px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+}
+
+.checkmark-checkbox {
+  /* Create a custom checkbox */
+  & {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: $primary-placeholder-color;
+    border-radius: 2px;
+  }
+
+  /* Create the checkmark-checkbox/indicator (hidden when not checked) */
+  &:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+}
+
+.container-radio {
+  /* Customize the label (the container) */
+  & {
+    display: inline-block;
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 16px;
+    cursor: pointer;
+    font-size: 10pt;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  /* Hide the browser's default radio button */
+  & input {
+    position: absolute;
+    opacity: 0;
+  }
+  /* When the radio button is checked, add a blue background */
+  & input:checked ~ .checkmark-radio {
+    background-color: $primary-color;
+  }
+
+  &:hover input:not(:checked) ~ .checkmark-radio {
+    background-color: $primary-hover-color;
+    transition: 150ms ease-in;
+  }
+  /* Show the indicator (dot/circle) when checked */
+  & input:checked ~ .checkmark-radio:after {
+    display: block;
+  }
+
+  /* Style the indicator (dot/circle) */
+  & .checkmark-radio:after {
+    top: 5px;
+    left: 5px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: white;
+  }
+}
+
+/* Create a custom radio button */
+.checkmark-radio {
+  & {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: $primary-placeholder-color;
+    border-radius: 50%;
+    transition: 150ms ease-in;
+  }
+
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  &:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+}
+
+input {
+  &[type=text], &[type=password] {
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid $primary-placeholder-color;
+    outline: 0;
+    color: white;
+    transition: 150ms ease-in;
+  }
+
+  &[type=text]:hover, &[type=password]:hover {
+    border-color: $primary-hover-color;
+  }
+
+  &[type=text]:focus, &[type=password]:focus {
+    border-color: $primary-focus-color;
+  }
+
+  &[type=button] {
+    font-family: 'monospace';
+    background-color: $primary-background-color;
+    color: white;
+    border: none;
+    outline: 0;
+    padding: 3px 6px;
+    border-radius: 2px;
+    transition: 150ms ease-in;
+  }
+
+  &[type=button]:hover {
+    background-color: $primary-hover-color;
+  }
+
+  &[type=button].active {
+    background-color: $primary-focus-color;
+  }
+}
+
+select {
+  & {
+    background-color: $background-color;
+    border: none;
+    border-bottom: 2px solid $primary-placeholder-color;
+    outline: 0;
+    color: white;
+    transition: 150ms ease-in;
+  }
+
+  &:hover {
+    border-color: $primary-hover-color;
+  }
+
+  &:focus {
+    border-color: $primary-focus-color;
+  }
+}

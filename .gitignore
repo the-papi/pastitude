@@ -1,0 +1,9 @@
+# Editor/IDE files
+.idea/
+
+# Environment files
+.env
+
+# Application files
+node_modules/
+__pycache__/

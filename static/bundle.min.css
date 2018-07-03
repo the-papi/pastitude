@@ -1,0 +1,1042 @@
+html, body {
+  height: 100%;
+  color: white;
+  font-family: 'monospace';
+  font-size: 10pt;
+  margin: 5px 0 0;
+  overflow: hidden; }
+
+body {
+  background: #171E22; }
+
+#bar {
+  margin: 5px; }
+
+#editor {
+  width: 100%;
+  height: calc(100% - 73px);
+  margin-top: 10px;
+  resize: none;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: white;
+  cursor: text; }
+
+ul.settings-bar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; }
+
+.settings-bar li {
+  float: left;
+  padding: 0 5px; }
+
+/* BASICS */
+.CodeMirror {
+  /* Set height, width, borders, and global font properties here */
+  font-family: monospace;
+  height: 300px;
+  color: black;
+  direction: ltr; }
+
+/* PADDING */
+.CodeMirror-lines {
+  padding: 4px 0;
+  /* Vertical padding around content */ }
+
+.CodeMirror pre {
+  padding: 0 4px;
+  /* Horizontal padding of content */ }
+
+.CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler {
+  background-color: white;
+  /* The little square between H and V scrollbars */ }
+
+/* GUTTER */
+.CodeMirror-gutters {
+  border-right: 1px solid #ddd;
+  background-color: #f7f7f7;
+  white-space: nowrap; }
+
+.CodeMirror-linenumber {
+  padding: 0 3px 0 5px;
+  min-width: 20px;
+  text-align: right;
+  color: #999;
+  white-space: nowrap; }
+
+.CodeMirror-guttermarker {
+  color: black; }
+
+.CodeMirror-guttermarker-subtle {
+  color: #999; }
+
+/* CURSOR */
+.CodeMirror-cursor {
+  border-left: 1px solid black;
+  border-right: none;
+  width: 0; }
+
+/* Shown when moving in bi-directional text */
+.CodeMirror div.CodeMirror-secondarycursor {
+  border-left: 1px solid silver; }
+
+.cm-fat-cursor .CodeMirror-cursor {
+  width: auto;
+  border: 0 !important;
+  background: #7e7; }
+
+.cm-fat-cursor div.CodeMirror-cursors {
+  z-index: 1; }
+
+.cm-fat-cursor-mark {
+  background-color: rgba(20, 255, 20, 0.5);
+  -webkit-animation: blink 1.06s steps(1) infinite;
+  -moz-animation: blink 1.06s steps(1) infinite;
+  animation: blink 1.06s steps(1) infinite; }
+
+.cm-animate-fat-cursor {
+  width: auto;
+  border: 0;
+  -webkit-animation: blink 1.06s steps(1) infinite;
+  -moz-animation: blink 1.06s steps(1) infinite;
+  animation: blink 1.06s steps(1) infinite;
+  background-color: #7e7; }
+
+@-moz-keyframes blink {
+  0% { }
+  50% {
+    background-color: transparent; }
+  100% { } }
+
+@-webkit-keyframes blink {
+  0% { }
+  50% {
+    background-color: transparent; }
+  100% { } }
+
+@keyframes blink {
+  0% { }
+  50% {
+    background-color: transparent; }
+  100% { } }
+
+/* Can style cursor different in overwrite (non-insert) mode */
+.cm-tab {
+  display: inline-block;
+  text-decoration: inherit; }
+
+.CodeMirror-rulers {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -50px;
+  bottom: -20px;
+  overflow: hidden; }
+
+.CodeMirror-ruler {
+  border-left: 1px solid #ccc;
+  top: 0;
+  bottom: 0;
+  position: absolute; }
+
+/* DEFAULT THEME */
+.cm-s-default .cm-header {
+  color: blue; }
+
+.cm-s-default .cm-quote {
+  color: #090; }
+
+.cm-negative {
+  color: #d44; }
+
+.cm-positive {
+  color: #292; }
+
+.cm-header, .cm-strong {
+  font-weight: bold; }
+
+.cm-em {
+  font-style: italic; }
+
+.cm-link {
+  text-decoration: underline; }
+
+.cm-strikethrough {
+  text-decoration: line-through; }
+
+.cm-s-default .cm-keyword {
+  color: #708; }
+
+.cm-s-default .cm-atom {
+  color: #219; }
+
+.cm-s-default .cm-number {
+  color: #164; }
+
+.cm-s-default .cm-def {
+  color: #00f; }
+
+.cm-s-default .cm-variable-2 {
+  color: #05a; }
+
+.cm-s-default .cm-variable-3, .cm-s-default .cm-type {
+  color: #085; }
+
+.cm-s-default .cm-comment {
+  color: #a50; }
+
+.cm-s-default .cm-string {
+  color: #a11; }
+
+.cm-s-default .cm-string-2 {
+  color: #f50; }
+
+.cm-s-default .cm-meta {
+  color: #555; }
+
+.cm-s-default .cm-qualifier {
+  color: #555; }
+
+.cm-s-default .cm-builtin {
+  color: #30a; }
+
+.cm-s-default .cm-bracket {
+  color: #997; }
+
+.cm-s-default .cm-tag {
+  color: #170; }
+
+.cm-s-default .cm-attribute {
+  color: #00c; }
+
+.cm-s-default .cm-hr {
+  color: #999; }
+
+.cm-s-default .cm-link {
+  color: #00c; }
+
+.cm-s-default .cm-error {
+  color: #f00; }
+
+.cm-invalidchar {
+  color: #f00; }
+
+.CodeMirror-composing {
+  border-bottom: 2px solid; }
+
+/* Default styles for common addons */
+div.CodeMirror span.CodeMirror-matchingbracket {
+  color: #0b0; }
+
+div.CodeMirror span.CodeMirror-nonmatchingbracket {
+  color: #a22; }
+
+.CodeMirror-matchingtag {
+  background: rgba(255, 150, 0, 0.3); }
+
+.CodeMirror-activeline-background {
+  background: #e8f2ff; }
+
+/* STOP */
+/* The rest of this file contains styles related to the mechanics of
+   the editor. You probably shouldn't touch them. */
+.CodeMirror {
+  position: relative;
+  overflow: hidden;
+  background: white; }
+
+.CodeMirror-scroll {
+  overflow: scroll !important;
+  /* Things will break if this is overridden */
+  /* 30px is the magic margin used to hide the element's real scrollbars */
+  /* See overflow: hidden in .CodeMirror */
+  margin-bottom: -30px;
+  margin-right: -30px;
+  padding-bottom: 30px;
+  height: 100%;
+  outline: none;
+  /* Prevent dragging from highlighting the element */
+  position: relative; }
+
+.CodeMirror-sizer {
+  position: relative;
+  border-right: 30px solid transparent; }
+
+/* The fake, visible scrollbars. Used to force redraw during scrolling
+   before actual scrolling happens, thus preventing shaking and
+   flickering artifacts. */
+.CodeMirror-vscrollbar, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler {
+  position: absolute;
+  z-index: 6;
+  display: none; }
+
+.CodeMirror-vscrollbar {
+  right: 0;
+  top: 0;
+  overflow-x: hidden;
+  overflow-y: scroll; }
+
+.CodeMirror-hscrollbar {
+  bottom: 0;
+  left: 0;
+  overflow-y: hidden;
+  overflow-x: scroll; }
+
+.CodeMirror-scrollbar-filler {
+  right: 0;
+  bottom: 0; }
+
+.CodeMirror-gutter-filler {
+  left: 0;
+  bottom: 0; }
+
+.CodeMirror-gutters {
+  position: absolute;
+  left: 0;
+  top: 0;
+  min-height: 100%;
+  z-index: 3; }
+
+.CodeMirror-gutter {
+  white-space: normal;
+  height: 100%;
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: -30px; }
+
+.CodeMirror-gutter-wrapper {
+  position: absolute;
+  z-index: 4;
+  background: none !important;
+  border: none !important; }
+
+.CodeMirror-gutter-background {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 4; }
+
+.CodeMirror-gutter-elt {
+  position: absolute;
+  cursor: default;
+  z-index: 4; }
+
+.CodeMirror-gutter-wrapper ::selection {
+  background-color: transparent; }
+
+.CodeMirror-gutter-wrapper ::-moz-selection {
+  background-color: transparent; }
+
+.CodeMirror-lines {
+  cursor: text;
+  min-height: 1px;
+  /* prevents collapsing before first draw */ }
+
+.CodeMirror pre {
+  /* Reset some styles that the rest of the page might have set */
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  border-width: 0;
+  background: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  margin: 0;
+  white-space: pre;
+  word-wrap: normal;
+  line-height: inherit;
+  color: inherit;
+  z-index: 2;
+  position: relative;
+  overflow: visible;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-variant-ligatures: contextual;
+  font-variant-ligatures: contextual; }
+
+.CodeMirror-wrap pre {
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  word-break: normal; }
+
+.CodeMirror-linebackground {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 0; }
+
+.CodeMirror-linewidget {
+  position: relative;
+  z-index: 2;
+  padding: 0.1px;
+  /* Force widget margins to stay inside of the container */ }
+
+.CodeMirror-rtl pre {
+  direction: rtl; }
+
+.CodeMirror-code {
+  outline: none; }
+
+/* Force content-box sizing for the elements where we expect it */
+.CodeMirror-scroll,
+.CodeMirror-sizer,
+.CodeMirror-gutter,
+.CodeMirror-gutters,
+.CodeMirror-linenumber {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box; }
+
+.CodeMirror-measure {
+  position: absolute;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden; }
+
+.CodeMirror-cursor {
+  position: absolute;
+  pointer-events: none; }
+
+.CodeMirror-measure pre {
+  position: static; }
+
+div.CodeMirror-cursors {
+  visibility: hidden;
+  position: relative;
+  z-index: 3; }
+
+div.CodeMirror-dragcursors {
+  visibility: visible; }
+
+.CodeMirror-focused div.CodeMirror-cursors {
+  visibility: visible; }
+
+.CodeMirror-selected {
+  background: #d9d9d9; }
+
+.CodeMirror-focused .CodeMirror-selected {
+  background: #d7d4f0; }
+
+.CodeMirror-crosshair {
+  cursor: crosshair; }
+
+.CodeMirror-line::selection, .CodeMirror-line > span::selection, .CodeMirror-line > span > span::selection {
+  background: #d7d4f0; }
+
+.CodeMirror-line::-moz-selection, .CodeMirror-line > span::-moz-selection, .CodeMirror-line > span > span::-moz-selection {
+  background: #d7d4f0; }
+
+.cm-searching {
+  background-color: #ffa;
+  background-color: rgba(255, 255, 0, 0.4); }
+
+/* Used to force a border model for a node */
+.cm-force-border {
+  padding-right: .1px; }
+
+@media print {
+  /* Hide the cursor when printing */
+  .CodeMirror div.CodeMirror-cursors {
+    visibility: hidden; } }
+
+/* See issue #2901 */
+.cm-tab-wrap-hack:after {
+  content: ''; }
+
+/* Help users use markselection to safely style text background */
+span.CodeMirror-selectedtext {
+  background: none; }
+
+.CodeMirror {
+  height: 100%;
+  color: white;
+  background: #171E22; }
+
+.CodeMirror-cursor {
+  border-left: 1px solid white; }
+
+.CodeMirror-linenumbers {
+  background: #171E22; }
+
+.CodeMirror-linenumber {
+  color: #4E6D71; }
+
+/* Custom checkbox */
+.container-checkbox {
+  /* Hide the browser's default checkbox */
+  /* When the checkbox is checked, add a blue background */
+  /* Show the checkmark-checkbox when checked */
+  /* Style the checkmark-checkbox/indicator */ }
+  .container-checkbox {
+    display: inline-block;
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 10pt;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
+  .container-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer; }
+  .container-checkbox input:checked ~ .checkmark-checkbox {
+    background-color: #26A6A6; }
+  .container-checkbox input:checked ~ .checkmark-checkbox:after {
+    display: block; }
+  .container-checkbox .checkmark-checkbox:after {
+    left: 5px;
+    top: 1px;
+    width: 4px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg); }
+
+.checkmark-checkbox {
+  /* Create a custom checkbox */
+  /* Create the checkmark-checkbox/indicator (hidden when not checked) */ }
+  .checkmark-checkbox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: #34444D;
+    border-radius: 2px; }
+  .checkmark-checkbox:after {
+    content: "";
+    position: absolute;
+    display: none; }
+
+.container-radio {
+  /* Customize the label (the container) */
+  /* Hide the browser's default radio button */
+  /* When the radio button is checked, add a blue background */
+  /* Show the indicator (dot/circle) when checked */
+  /* Style the indicator (dot/circle) */ }
+  .container-radio {
+    display: inline-block;
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 16px;
+    cursor: pointer;
+    font-size: 10pt;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
+  .container-radio input {
+    position: absolute;
+    opacity: 0; }
+  .container-radio input:checked ~ .checkmark-radio {
+    background-color: #26A6A6; }
+  .container-radio:hover input:not(:checked) ~ .checkmark-radio {
+    background-color: #3E505A;
+    transition: 150ms ease-in; }
+  .container-radio input:checked ~ .checkmark-radio:after {
+    display: block; }
+  .container-radio .checkmark-radio:after {
+    top: 5px;
+    left: 5px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: white; }
+
+/* Create a custom radio button */
+.checkmark-radio {
+  /* Create the indicator (the dot/circle - hidden when not checked) */ }
+  .checkmark-radio {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: #34444D;
+    border-radius: 50%;
+    transition: 150ms ease-in; }
+  .checkmark-radio:after {
+    content: "";
+    position: absolute;
+    display: none; }
+
+input[type=text], input[type=password] {
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #34444D;
+  outline: 0;
+  color: white;
+  transition: 150ms ease-in; }
+
+input[type=text]:hover, input[type=password]:hover {
+  border-color: #3E505A; }
+
+input[type=text]:focus, input[type=password]:focus {
+  border-color: #4A606C; }
+
+input[type=button] {
+  font-family: 'monospace';
+  background-color: #2E3C43;
+  color: white;
+  border: none;
+  outline: 0;
+  padding: 3px 6px;
+  border-radius: 2px;
+  transition: 150ms ease-in; }
+
+input[type=button]:hover {
+  background-color: #3E505A; }
+
+input[type=button].active {
+  background-color: #4A606C; }
+
+select {
+  background-color: #171E22;
+  border: none;
+  border-bottom: 2px solid #34444D;
+  outline: 0;
+  color: white;
+  transition: 150ms ease-in; }
+
+select:hover {
+  border-color: #3E505A; }
+
+select:focus {
+  border-color: #4A606C; }
+
+.cm-s-material-peacock.CodeMirror {
+  background-color: #171E22;
+  color: #e9eded; }
+
+.cm-s-material-peacock .CodeMirror-gutters {
+  border-right: 1px solid #304E52;
+  background: #171E22; }
+
+.cm-s-material-peacock .CodeMirror-guttermarker, .cm-s-material-peacock .CodeMirror-guttermarker-subtle, .cm-s-material-peacock .CodeMirror-linenumber {
+  color: #537f7e; }
+
+.cm-s-material-peacock .CodeMirror-cursor {
+  border-left: 1px solid #f8f8f0; }
+
+.cm-s-material-peacock div.CodeMirror-selected {
+  background: #171E22; }
+
+.cm-s-material-peacock.CodeMirror-focused div.CodeMirror-selected {
+  background: rgba(255, 255, 255, 0.1); }
+
+.cm-s-material-peacock .CodeMirror-line::selection, .cm-s-material-peacock .CodeMirror-line > span::selection, .cm-s-material-peacock .CodeMirror-line > span > span::selection {
+  background: rgba(255, 255, 255, 0.1); }
+
+.cm-s-material-peacock .CodeMirror-line::-moz-selection, .cm-s-material-peacock .CodeMirror-line > span::-moz-selection, .cm-s-material-peacock .CodeMirror-line > span > span::-moz-selection {
+  background: rgba(255, 255, 255, 0.1); }
+
+.cm-s-material-peacock .CodeMirror-activeline-background {
+  background: rgba(0, 0, 0, 0); }
+
+.cm-s-material-peacock .cm-keyword {
+  color: #26A6A6; }
+
+.cm-s-material-peacock .cm-operator {
+  color: #26A6A6; }
+
+.cm-s-material-peacock .cm-variable-2 {
+  color: #E9F6FB; }
+
+.cm-s-material-peacock .cm-variable-3 {
+  color: #E9F6FB; }
+
+.cm-s-material-peacock .cm-builtin {
+  color: #26A6A6; }
+
+.cm-s-material-peacock .cm-atom {
+  color: #BCD42A; }
+
+.cm-s-material-peacock .cm-number {
+  color: #BCD42A; }
+
+.cm-s-material-peacock .cm-def {
+  color: #BCD42A; }
+
+.cm-s-material-peacock .cm-string {
+  color: #BCD42A; }
+
+.cm-s-material-peacock .cm-string-2 {
+  color: #BCD42A; }
+
+.cm-s-material-peacock .cm-comment {
+  color: #304E52; }
+
+.cm-s-material-peacock .cm-variable {
+  color: #E9F6FB; }
+
+.cm-s-material-peacock .cm-tag {
+  color: #26A6A6; }
+
+.cm-s-material-peacock .cm-meta {
+  color: #26A6A6; }
+
+.cm-s-material-peacock .cm-attribute {
+  color: #FF5D38; }
+
+.cm-s-material-peacock .cm-property {
+  color: #FF5D38; }
+
+.cm-s-material-peacock .cm-qualifier {
+  color: #26A6A6; }
+
+.cm-s-material-peacock .cm-variable-3 {
+  color: #26A6A6; }
+
+.cm-s-material-peacock .cm-type {
+  color: #26A6A6; }
+
+.cm-s-material-peacock .cm-tag {
+  color: #26A6A6; }
+
+.cm-s-material-peacock .cm-error {
+  color: #DA1E3C; }
+
+.cm-s-material-peacock .CodeMirror-matchingbracket {
+  text-decoration: underline;
+  color: white !important; }
+
+/*
+ *  Remodal - v1.1.1
+ *  Responsive, lightweight, fast, synchronized with CSS animations, fully customizable modal window plugin with declarative configuration and hash tracking.
+ *  http://vodkabears.github.io/remodal/
+ *
+ *  Made by Ilya Makarov
+ *  Under MIT License
+ */
+/* ==========================================================================
+   Remodal's default mobile first theme
+   ========================================================================== */
+/* Default theme styles for the background */
+.remodal-bg.remodal-is-opening,
+.remodal-bg.remodal-is-opened {
+  -webkit-filter: blur(3px);
+  filter: blur(3px); }
+
+/* Default theme styles of the overlay */
+.remodal-overlay.remodal-is-opening,
+.remodal-overlay.remodal-is-closing {
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards; }
+
+.remodal-overlay.remodal-is-opening {
+  -webkit-animation-name: remodal-overlay-opening-keyframes;
+  animation-name: remodal-overlay-opening-keyframes; }
+
+.remodal-overlay.remodal-is-closing {
+  -webkit-animation-name: remodal-overlay-closing-keyframes;
+  animation-name: remodal-overlay-closing-keyframes; }
+
+/* Default theme styles of the wrapper */
+.remodal-wrapper {
+  padding: 10px 10px 0; }
+
+/* Default theme styles of the modal dialog */
+.remodal {
+  box-sizing: border-box;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 35px;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  color: white;
+  background: #2E3C43;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25); }
+
+.remodal.remodal-is-opening,
+.remodal.remodal-is-closing {
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards; }
+
+.remodal.remodal-is-opening {
+  -webkit-animation-name: remodal-opening-keyframes;
+  animation-name: remodal-opening-keyframes; }
+
+.remodal.remodal-is-closing {
+  -webkit-animation-name: remodal-closing-keyframes;
+  animation-name: remodal-closing-keyframes; }
+
+/* Vertical align of the modal dialog */
+.remodal,
+.remodal-wrapper:after {
+  vertical-align: middle; }
+
+/* Close button */
+.remodal-close {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  overflow: visible;
+  width: 35px;
+  height: 35px;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-transition: color 0.2s;
+  transition: color 0.2s;
+  text-decoration: none;
+  color: #95979c;
+  border: 0;
+  outline: 0;
+  background: transparent; }
+
+.remodal-close:hover,
+.remodal-close:focus {
+  color: #2b2e38; }
+
+.remodal-close:before {
+  font-family: Arial, "Helvetica CY", "Nimbus Sans L", sans-serif !important;
+  font-size: 25px;
+  line-height: 35px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 35px;
+  content: "\00d7";
+  text-align: center; }
+
+/* Dialog buttons */
+.remodal-confirm,
+.remodal-cancel {
+  font: inherit;
+  display: inline-block;
+  overflow: visible;
+  min-width: 110px;
+  margin: 0;
+  padding: 12px 0;
+  cursor: pointer;
+  -webkit-transition: background 0.2s;
+  transition: background 0.2s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  border: 0;
+  outline: 0; }
+
+.remodal-confirm {
+  color: #fff;
+  background: #81c784; }
+
+.remodal-confirm:hover,
+.remodal-confirm:focus {
+  background: #66bb6a; }
+
+.remodal-cancel {
+  color: #fff;
+  background: #e57373; }
+
+.remodal-cancel:hover,
+.remodal-cancel:focus {
+  background: #ef5350; }
+
+/* Remove inner padding and border in Firefox 4+ for the button tag. */
+.remodal-confirm::-moz-focus-inner,
+.remodal-cancel::-moz-focus-inner,
+.remodal-close::-moz-focus-inner {
+  padding: 0;
+  border: 0; }
+
+/* Keyframes
+   ========================================================================== */
+@-webkit-keyframes remodal-opening-keyframes {
+  from {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+    opacity: 0; }
+  to {
+    -webkit-transform: none;
+    transform: none;
+    opacity: 1;
+    -webkit-filter: blur(0);
+    filter: blur(0); } }
+
+@keyframes remodal-opening-keyframes {
+  from {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+    opacity: 0; }
+  to {
+    -webkit-transform: none;
+    transform: none;
+    opacity: 1;
+    -webkit-filter: blur(0);
+    filter: blur(0); } }
+
+@-webkit-keyframes remodal-closing-keyframes {
+  from {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1; }
+  to {
+    -webkit-transform: scale(0.95);
+    transform: scale(0.95);
+    opacity: 0;
+    -webkit-filter: blur(0);
+    filter: blur(0); } }
+
+@keyframes remodal-closing-keyframes {
+  from {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1; }
+  to {
+    -webkit-transform: scale(0.95);
+    transform: scale(0.95);
+    opacity: 0;
+    -webkit-filter: blur(0);
+    filter: blur(0); } }
+
+@-webkit-keyframes remodal-overlay-opening-keyframes {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@keyframes remodal-overlay-opening-keyframes {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@-webkit-keyframes remodal-overlay-closing-keyframes {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
+
+@keyframes remodal-overlay-closing-keyframes {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
+
+/* Media queries
+   ========================================================================== */
+@media only screen and (min-width: 641px) {
+  .remodal {
+    max-width: 700px; } }
+
+/* IE8
+   ========================================================================== */
+.lt-ie9 .remodal-overlay {
+  background: #2b2e38; }
+
+.lt-ie9 .remodal {
+  width: 700px; }
+
+/*
+ *  Remodal - v1.1.1
+ *  Responsive, lightweight, fast, synchronized with CSS animations, fully customizable modal window plugin with declarative configuration and hash tracking.
+ *  http://vodkabears.github.io/remodal/
+ *
+ *  Made by Ilya Makarov
+ *  Under MIT License
+ */
+/* ==========================================================================
+   Remodal's necessary styles
+   ========================================================================== */
+/* Hide scroll bar */
+html.remodal-is-locked {
+  overflow: hidden;
+  -ms-touch-action: none;
+  touch-action: none; }
+
+/* Anti FOUC */
+.remodal,
+[data-remodal-id] {
+  display: none; }
+
+/* Necessary styles of the overlay */
+.remodal-overlay {
+  position: fixed;
+  z-index: 9999;
+  top: -5000px;
+  right: -5000px;
+  bottom: -5000px;
+  left: -5000px;
+  display: none; }
+
+/* Necessary styles of the wrapper */
+.remodal-wrapper {
+  position: fixed;
+  z-index: 10000;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: none;
+  overflow: auto;
+  text-align: center;
+  -webkit-overflow-scrolling: touch; }
+
+.remodal-wrapper:after {
+  display: inline-block;
+  height: 100%;
+  margin-left: -0.05em;
+  content: ""; }
+
+/* Fix iPad, iPhone glitches */
+.remodal-overlay,
+.remodal-wrapper {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden; }
+
+/* Necessary styles of the modal dialog */
+.remodal {
+  position: relative;
+  outline: none;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%; }
+
+.remodal-is-initialized {
+  /* Disable Anti-FOUC */
+  display: inline-block; }
+
+.CodeMirror-dialog {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: inherit;
+  z-index: 15;
+  padding: .1em .8em;
+  overflow: hidden;
+  color: inherit; }
+
+.CodeMirror-dialog-top {
+  border-bottom: 1px solid #eee;
+  top: 0; }
+
+.CodeMirror-dialog-bottom {
+  border-top: 1px solid #eee;
+  bottom: 0; }
+
+.CodeMirror-dialog input {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 20em;
+  color: inherit;
+  font-family: monospace; }
+
+.CodeMirror-dialog button {
+  font-size: 70%; }
