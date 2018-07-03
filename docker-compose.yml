@@ -14,7 +14,7 @@ services:
         build:
             context: .
             dockerfile: docker/nginx/Dockerfile
-        environment:
+        env_file:
           - .env
         networks:
 # Prepared for proxy
