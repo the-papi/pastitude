@@ -106,7 +106,10 @@ if ($('#data').length == 0) {
     })
 
     $(window).on('resize', function () {
-        $('#editor').css('height', ($('body').outerHeight(true) - $('#bar').outerHeight(true) + $('#editor').outerHeight() - $('#editor').outerHeight(true)) + 'px')
+        let height = ($('body').outerHeight(true) - $('#bar').outerHeight(true) + $('#editor').outerHeight() - $('#editor').outerHeight(true)) + 'px'
+
+        $('#editor').css('height', height)
+        $('.CodeMirror').css('height', height)
     });
 
     $('#language').on('change', function () {
