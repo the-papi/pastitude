@@ -6,7 +6,7 @@ from flask import Flask, render_template, request, jsonify
 from utils import genereate_random_string
 
 app = Flask(__name__)
-r = redis.StrictRedis('localhost')
+r = redis.StrictRedis('redis')
 
 
 @app.route('/', methods=['GET'])
