@@ -12,7 +12,8 @@ if ($('#data').length != 0) {
     }
 
     let initializeEditor = function (decryptionKey) {
-        data = JSON.parse(CryptoJS.AES.decrypt(data.encrypted_data, decryptionKey).toString(CryptoJS.enc.Utf8));
+        data = JSON.parse(CryptoJS.AES.decrypt(data.encrypted_data, decryptionKey)
+                                  .toString(CryptoJS.enc.Utf8));
 
         let editor = editorWrapper.createEditor($('#editor')[0], {
             theme: 'material-peacock',
@@ -20,6 +21,7 @@ if ($('#data').length != 0) {
             indentUnit: 4,
             readOnly: true,
             cursorBlinkRate: -1, // Hide cursor
+            lineWrapping: true,
         });
 
         global.window.data = data;
@@ -29,7 +31,8 @@ if ($('#data').length != 0) {
             $('#editor').css('height', 'calc(100% - 41px)');
 
             for (let i = 0; i < data.files.length; i++) {
-                $('#file-tabs').append('<li class="file-tab"><input type="button" data-index="' + i + '" value="' + data.files[i].name + '"></li>')
+                $('#file-tabs')
+                    .append('<li class="file-tab"><input type="button" data-index="' + i + '" value="' + data.files[i].name + '"></li>')
 
                 $('.file-tab:last input[type=button]').on('click', function (event) {
                     let $this = $(this);

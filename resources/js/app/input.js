@@ -13,7 +13,8 @@ if ($('#data').length == 0) {
         theme: 'material-peacock',
         lineNumbers: true,
         indentUnit: 4,
-        autofocus: true
+        autofocus: true,
+        lineWrapping: true
     });
 
     global.window.CodeMirror = CodeMirror;
@@ -23,7 +24,8 @@ if ($('#data').length == 0) {
     let selectedFileIndex = 0;
 
     for (let i in CodeMirror.modeInfo) {
-        $('#language').append('<option value="' + i + '">' + CodeMirror.modeInfo[i].name + '</option>');
+        $('#language')
+            .append('<option value="' + i + '">' + CodeMirror.modeInfo[i].name + '</option>');
     }
 
     $('#new-file').on('click', function () {
@@ -33,14 +35,17 @@ if ($('#data').length == 0) {
             'content': '',
         });
 
-        $('#new-file').parent().before('<li class="file-tab"><input type="button" data-index="' + (data.files.length - 1) + '" value="Untitled ' + data.files.length + '"></li>');
+        $('#new-file')
+            .parent()
+            .before('<li class="file-tab"><input type="button" data-index="' + (data.files.length - 1) + '" value="Untitled ' + data.files.length + '"></li>');
 
         $('.file-tab:last input[type=button]').on('click', function (event) {
             data.files[selectedFileIndex].mime = editor.getOption('mode');
             data.files[selectedFileIndex].name = $('#file-name').val();
             data.files[selectedFileIndex].content = editor.getValue();
 
-            $('.file-tab input[type=button][data-index=' + selectedFileIndex + ']').val(data.files[selectedFileIndex].name);
+            $('.file-tab input[type=button][data-index=' + selectedFileIndex + ']')
+                .val(data.files[selectedFileIndex].name);
 
             let $this = $(this);
             let file = data.files[$this.attr('data-index')];
@@ -99,14 +104,15 @@ if ($('#data').length == 0) {
                     window.location.href = window.location.pathname + data.uuid + '#' + key;
                 }
             },
-            error: function(error) {
+            error: function (error) {
                 console.log(error);
             }
         });
     })
 
     $(window).on('resize', function () {
-        let height = ($('body').outerHeight(true) - $('#bar').outerHeight(true) + $('#editor').outerHeight() - $('#editor').outerHeight(true)) + 'px'
+        let height = ($('body').outerHeight(true) - $('#bar').outerHeight(true) + $('#editor')
+            .outerHeight() - $('#editor').outerHeight(true)) + 'px'
 
         $('#editor').css('height', height)
         $('.CodeMirror').css('height', height)
