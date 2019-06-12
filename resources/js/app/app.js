@@ -1,4 +1,7 @@
-var $ = require('jquery');
+import './input'
+import './output'
+
+import $ from 'jquery'
 
 // Load settings
 $(function () {

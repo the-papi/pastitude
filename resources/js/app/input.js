@@ -1,7 +1,8 @@
-var CryptoJS = require('crypto-js'),
-    $ = require('jquery'),
-    CodeMirror = require('codemirror'),
-    editorWrapper = require('../editor/editor');
+import CryptoJS from 'crypto-js'
+import $ from 'jquery'
+import CodeMirror from 'codemirror'
+import editorWrapper from '../editor/editor'
+
 
 if ($('#data').length == 0) {
     var data = {
@@ -14,7 +15,7 @@ if ($('#data').length == 0) {
         lineNumbers: true,
         indentUnit: 4,
         autofocus: true,
-        lineWrapping: true
+        lineWrapping: true,
     });
 
     global.window.CodeMirror = CodeMirror;
@@ -61,6 +62,7 @@ if ($('#data').length == 0) {
         })
 
         $('.file-tab:last input[type=button]').click();
+        $('#language option')[0].selected = true;
     });
 
     $('#file-name').on('keyup', function (event) {

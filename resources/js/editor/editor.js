@@ -7,6 +7,7 @@ require('codemirror/addon/mode/simple');
 require('codemirror/addon/mode/overlay');
 require('codemirror/addon/dialog/dialog');
 require('codemirror/addon/search/searchcursor');
+require('codemirror/addon/search/search');
 
 global.window.CodeMirror = CodeMirror;
 
@@ -50,9 +51,12 @@ module.exports.createEditor = function (element, options) {
 
         if (mode != 'null') {
             loadModesWithDependencies(mode, function () {
-                callback && callback()
-                editor.setOption('mode', mime)
+                callback && callback();
+                editor.setOption('mode', mime);
             });
+        } else {
+            callback && callback();
+            editor.setOption('mode', mime);
         }
     }
 

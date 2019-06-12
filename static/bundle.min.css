@@ -438,8 +438,8 @@ div.CodeMirror-dragcursors {
   background: #d7d4f0; }
 
 .cm-searching {
-  background-color: #ffa;
-  background-color: rgba(255, 255, 0, 0.4); }
+  background-color: #3E505A;
+  background-color: rgba(0, 255, 0, 0.25); }
 
 /* Used to force a border model for a node */
 .cm-force-border {

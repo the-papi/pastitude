@@ -1,12 +1,12 @@
 import json
-
+import os
 import redis
-from flask import Flask, render_template, request, jsonify
 
+from flask import Flask, render_template, request, jsonify
 from utils import genereate_random_string
 
 app = Flask(__name__)
-r = redis.StrictRedis('redis')
+r = redis.StrictRedis(os.environ.get('REDIS_HOST', 'localhost'))
 
 
 @app.route('/', methods=['GET'])

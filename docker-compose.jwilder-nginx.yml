@@ -2,9 +2,9 @@ version: '3'
 
 networks:
     application:
-# Prepared for proxy
-#    public:
-#        external: true
+    # Prepared for proxy
+    web:
+        external: true
 
 volumes:
     application:
@@ -19,13 +19,13 @@ services:
             - .env
         networks:
             # Prepared for proxy
-            #            - public
+            - web
             - application
         volumes:
             - application:/app
-        # Comment ports section if you would like to use proxy
-        ports:
-            - 80:80
+    # Comment ports section if you would like to use proxy
+    #        ports:
+    #          - 80:80
 
     uwsgi:
         restart: unless-stopped

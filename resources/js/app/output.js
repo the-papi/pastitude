@@ -1,5 +1,7 @@
-var $ = require('jquery'),
-    editorWrapper = require('../editor/editor');
+import $ from 'jquery'
+import editorWrapper from '../editor/editor'
+import CryptoJS from 'crypto-js'
+
 
 require('remodal');
 

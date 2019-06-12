@@ -7,18 +7,6 @@ var gulp = require('gulp'),
     util = require('gulp-util'),
     sass = require('gulp-sass');
 
-gulp.task('build-app', function () {
-    return gulp.src('resources/js/app/**/*.js')
-               .pipe(concat('bundle.js'))
-               .pipe(browserify())
-               .pipe(util.env.production ? babel({
-                   presets: ['es2015']
-               }) : util.noop())
-               .pipe(util.env.production ? uglify() : util.noop())
-               .pipe(rename({suffix: '.min'}))
-               .pipe(gulp.dest('static/'));
-});
-
 gulp.task('build-editor', function () {
     return gulp.src('resources/js/editor/**/*.js')
                .pipe(concat('editor-bundle.js'))
@@ -52,4 +40,4 @@ gulp.task('build-sass', function () {
                .pipe(gulp.dest('static/'))
 });
 
-gulp.task('build', ['build-sass', 'build-app', 'build-all-editor-modes', 'build-editor-vim-keymap-mode'])
+gulp.task('build', ['build-sass', 'build-all-editor-modes', 'build-editor-vim-keymap-mode'])
