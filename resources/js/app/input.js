@@ -25,8 +25,7 @@ if ($('#data').length == 0) {
     let selectedFileIndex = 0;
 
     for (let i in CodeMirror.modeInfo) {
-        $('#language')
-            .append('<option value="' + i + '">' + CodeMirror.modeInfo[i].name + '</option>');
+        $('#language').append('<option value="' + i + '" data-mime="' + CodeMirror.modeInfo[i].mime + '">' + CodeMirror.modeInfo[i].name + '</option>');
     }
 
     $('#new-file').on('click', function () {
@@ -59,10 +58,10 @@ if ($('#data').length == 0) {
             editor.setOption('mode', file.mime);
             $('#file-name').val(file.name);
             editor.setValue(file.content);
-        })
+        });
 
         $('.file-tab:last input[type=button]').click();
-        $('#language option')[0].selected = true;
+        $('#language option[data-mime="text/plain"]')[0].selected = true;
     });
 
     $('#file-name').on('keyup', function (event) {
@@ -110,7 +109,7 @@ if ($('#data').length == 0) {
                 console.log(error);
             }
         });
-    })
+    });
 
     $(window).on('resize', function () {
         let height = ($('body').outerHeight(true) - $('#bar').outerHeight(true) + $('#editor')
